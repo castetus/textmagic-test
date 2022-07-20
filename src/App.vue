@@ -4,7 +4,8 @@
     <c-button
       text="Create"
       bgColor="#008CFF"
-      textColor="#fff">
+      textColor="#fff"
+      @click="showMenu ? showMenu = false : showMenu = true">
       <template v-slot:prepend>
         <q-icon name="circle"/>
       </template>
@@ -12,14 +13,16 @@
         <c-avatar size="sm" :link="headerAvatarLink"/>
       </template>
     </c-button>
+    <c-menu :modelValue="showMenu" @update:modelValue="showMenu = $event"></c-menu>
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue';
 import CButton from './components/CButton.vue';
 import CAvatar from './components/CAvatar.vue';
+import CMenu from './components/CMenu.vue';
 
 export default {
   name: 'LayoutDefault',
@@ -28,6 +31,13 @@ export default {
     HelloWorld,
     CButton,
     CAvatar,
+    CMenu,
+  },
+
+  data() {
+    return {
+      showMenu: false,
+    };
   },
 
   setup() {
@@ -36,6 +46,12 @@ export default {
       // eslint-disable-next-line global-require
       headerAvatarLink: require('./assets/user_avatar_small.png'),
     };
+  },
+
+  methods: {
+    switch(val: boolean): void {
+      console.log(val);
+    },
   },
 };
 </script>
