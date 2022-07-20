@@ -11,9 +11,11 @@ const takeRandomValue = (obj: any) => {
 enum CARD_PRIORITIES {low=0, high=1, urgent=2}
 // eslint-disable-next-line no-shadow
 enum CARD_STATUSES {'need attention', 'closed', 'clicked', 'responded'}
+// eslint-disable-next-line no-shadow
+enum CARD_TYPES {'task', 'deal', 'ticket', 'campaign'}
 
 interface Card {
-  cardType: string,
+  cardType: CARD_TYPES,
   cardStatus: CARD_STATUSES,
   cardDate: Date,
   cardTitle: string,
@@ -23,11 +25,23 @@ interface Card {
   cardAvatarLink: string,
 }
 
+interface MenuItem {
+  icon: string,
+  text: string,
+  counter: number | null,
+}
+
+interface CardType {
+  name: string,
+  text: string,
+  icon: string,
+}
+
 export const CARDS: Card[] = [];
 
 export function createRandomCard(): Card {
   return {
-    cardType: faker.word.adjective(),
+    cardType: takeRandomValue(CARD_TYPES),
     cardStatus: takeRandomValue(CARD_STATUSES),
     cardDate: faker.date.birthdate(),
     cardTitle: faker.word.adjective(),
@@ -41,3 +55,26 @@ export function createRandomCard(): Card {
 Array.from({ length: 10 }).forEach(() => {
   CARDS.push(createRandomCard());
 });
+
+export const MENU_ITEMS: MenuItem[] = [
+  {
+    icon: 'house',
+    text: 'Home',
+    counter: null,
+  },
+  {
+    icon: 'email',
+    text: 'Tickets',
+    counter: 5,
+  },
+  {
+    icon: 'quickreply',
+    text: 'Messages',
+    counter: 3,
+  },
+  {
+    icon: 'people',
+    text: 'Contacts',
+    counter: null,
+  },
+];

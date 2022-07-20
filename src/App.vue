@@ -1,40 +1,33 @@
 <template>
-  <main class="main">
-    <HelloWorld />
-    <c-button
-      text="Create"
-      bgColor="#008CFF"
-      textColor="#fff"
-      @click="showMenu ? showMenu = false : showMenu = true">
-      <template v-slot:prepend>
-        <q-icon name="circle"/>
-      </template>
-      <template v-slot:append>
-        <c-avatar size="sm" :link="headerAvatarLink"/>
-      </template>
-    </c-button>
-    <c-menu :modelValue="showMenu" @update:modelValue="showMenu = $event"></c-menu>
-    <CCard v-for="(card, index) in cards" :key="index" v-bind="card"/>
-  </main>
+  <q-layout view="lHh lpr lFf">
+    <c-header>
+    </c-header>
+    <c-drawer :items="menuItems"></c-drawer>
+    <q-page-container :style="`background: ${mainBackground}`">
+      <section class=""></section>
+      <c-menu :modelValue="showMenu" @update:modelValue="showMenu = $event"></c-menu>
+      <CCard v-for="(card, index) in cards" :key="index" v-bind="card"/>
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import CHeader from './components/CHeader.vue';
+import CDrawer from './components/CDrawer.vue';
 import CButton from './components/CButton.vue';
 import CAvatar from './components/CAvatar.vue';
 import CMenu from './components/CMenu.vue';
 import CCard from './components/CCard.vue';
 
-import { CARDS } from './fakeApi';
+import { CARDS, MENU_ITEMS } from './fakeApi';
 
 export default {
   name: 'LayoutDefault',
 
   components: {
-    HelloWorld,
-    CButton,
-    CAvatar,
+    CHeader,
+    CDrawer,
     CMenu,
     CCard,
   },
@@ -51,7 +44,14 @@ export default {
       // eslint-disable-next-line global-require
       headerAvatarLink: require('./assets/user_avatar_small.png'),
       cards: CARDS,
+      menuItems: MENU_ITEMS,
     };
+  },
+
+  computed: {
+    mainBackground() {
+      return '#E5E8EA';
+    },
   },
 
   methods: {

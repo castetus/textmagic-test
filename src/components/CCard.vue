@@ -1,18 +1,21 @@
 <template>
   <div class="c-card">
+    <div class="card__status-icon">
+      <q-icon></q-icon>
+    </div>
     <div class="c-card__header">
-      <span class="c-card__type"></span>
+      <span class="c-card__type">{{cardType}}</span>
       <span class="c-card__date">{{dateToDisplay}}</span>
     </div>
     <div class="c-card__title">{{cardTitle}}</div>
     <div class="c-card__subtitle">{{cardSubtitle}}</div>
     <div class="c-card__footer">
-      <div class="c-card-footer-content">
+      <div class="c-card__footer-content">
         <c-card-status v-if="cardStatus.length" :text="cardStatus"/>
         <span class="c-card__footer-text">{{cardFootertext}}</span>
         <c-card-priority :priority="cardPriority"/>
       </div>
-      <div class="c-card-footer-avatar">
+      <div class="c-card__footer-avatar">
         <c-avatar size="sm" :link="cardAvatarLink"/>
       </div>
     </div>
@@ -77,12 +80,16 @@ export default {
     max-width: 644px;
     margin: 0 0 8px 46px;
     padding: 16px 16px 18px;
-    &__header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
+    &__status-icon {
+      border-radius: 50%;
+      background-color: $BGWhite;
+      position: absolute;
+      left: -10px;
+      &::after {
+        content: '';
+      }
     }
-    &__footer {
+    &__header, &__footer, &__footer-content {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
