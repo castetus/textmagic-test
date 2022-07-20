@@ -37,6 +37,17 @@ interface CardType {
   icon: string,
 }
 
+interface IconButton {
+  icon: string,
+  text: string,
+}
+
+interface Tab {
+  text: string,
+  counter: number | null,
+  name: string,
+}
+
 export const CARDS: Card[] = [];
 
 export function createRandomCard(): Card {
@@ -76,5 +87,51 @@ export const MENU_ITEMS: MenuItem[] = [
     icon: 'people',
     text: 'Contacts',
     counter: null,
+  },
+];
+
+export const TOP_SECTION_BUTTONS: IconButton[] = [
+  {
+    icon: 'house',
+    text: 'Call',
+  },
+  {
+    icon: 'email',
+    text: 'Email',
+  },
+  {
+    icon: 'chat',
+    text: 'Text',
+  },
+  {
+    icon: 'edit',
+    text: 'Edit',
+  },
+  {
+    icon: 'more_vert',
+    text: 'More',
+  },
+];
+
+export const TOP_SECTION_TABS: Tab[] = [
+  {
+    text: 'Activities',
+    counter: null,
+    name: 'activities',
+  },
+  {
+    text: 'Logs',
+    counter: null,
+    name: 'logs',
+  },
+  {
+    text: 'Visits',
+    counter: null,
+    name: 'visits',
+  },
+  {
+    text: 'Files',
+    counter: 8,
+    name: 'files',
   },
 ];

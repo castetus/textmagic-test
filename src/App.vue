@@ -4,7 +4,12 @@
     </c-header>
     <c-drawer :items="menuItems"></c-drawer>
     <q-page-container :style="`background: ${mainBackground}`">
-      <section class=""></section>
+      <CTopSection
+        :buttons="topSectionButtons"
+        :tabs="topSectionTabs"
+        userName="User Name"
+        companyName="Company Name"
+      />
       <c-menu :modelValue="showMenu" @update:modelValue="showMenu = $event"></c-menu>
       <CCard v-for="(card, index) in cards" :key="index" v-bind="card"/>
     </q-page-container>
@@ -15,12 +20,14 @@
 import { ref } from 'vue';
 import CHeader from './components/CHeader.vue';
 import CDrawer from './components/CDrawer.vue';
-import CButton from './components/CButton.vue';
+import CTopSection from './components/CTopSection.vue';
 import CAvatar from './components/CAvatar.vue';
 import CMenu from './components/CMenu.vue';
 import CCard from './components/CCard.vue';
 
-import { CARDS, MENU_ITEMS } from './fakeApi';
+import {
+  CARDS, MENU_ITEMS, TOP_SECTION_BUTTONS, TOP_SECTION_TABS,
+} from './fakeApi';
 
 export default {
   name: 'LayoutDefault',
@@ -28,6 +35,7 @@ export default {
   components: {
     CHeader,
     CDrawer,
+    CTopSection,
     CMenu,
     CCard,
   },
@@ -45,6 +53,8 @@ export default {
       headerAvatarLink: require('./assets/user_avatar_small.png'),
       cards: CARDS,
       menuItems: MENU_ITEMS,
+      topSectionButtons: TOP_SECTION_BUTTONS,
+      topSectionTabs: TOP_SECTION_TABS,
     };
   },
 

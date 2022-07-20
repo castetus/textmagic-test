@@ -1,6 +1,6 @@
 <template>
   <div class="c-card">
-    <div class="card__status-icon">
+    <div class="c-card__status-icon">
       <q-icon></q-icon>
     </div>
     <div class="c-card__header">
@@ -76,10 +76,12 @@ export default {
 
 <style scoped lang="scss">
   .c-card {
+    position: relative;
     background: $BGWhite;
     max-width: 644px;
     margin: 0 0 8px 46px;
     padding: 16px 16px 18px;
+    border-radius: 4px;
     &__status-icon {
       border-radius: 50%;
       background-color: $BGWhite;
@@ -107,6 +109,11 @@ export default {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    &__status-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 </style>

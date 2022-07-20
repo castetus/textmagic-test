@@ -7,6 +7,7 @@
 </template>
 
 <script lang="ts">
+
 export default {
   name: 'CButton',
   props: {
@@ -16,7 +17,7 @@ export default {
     },
     bgColor: {
       type: String,
-      default: (): string => '',
+      default: (): string => '#fff',
     },
     iconSize: {
       type: String,
@@ -35,6 +36,14 @@ export default {
       default: (): string => '#6E7191',
     },
   },
+  computed: {
+    SIZES() {
+      return {
+        sm: '32px',
+        md: '36px',
+      };
+    },
+  },
 };
 </script>
 
@@ -44,6 +53,7 @@ export default {
     justify-content: center;
     align-items: center;
     width: fit-content;
+    height: v-bind(SIZES[size]);
     background: v-bind(bgColor);
     color: v-bind(textColor);
     border-radius: 4px;
