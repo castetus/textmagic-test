@@ -1,6 +1,8 @@
 // It's highly recommended to change the default colors
 // to match your app's branding.
 
+$BGWhite: #ffffff;
+
 $primary   : #027BE3;
 $secondary : #26A69A;
 $accent    : #9C27B0;
@@ -12,8 +14,12 @@ $negative  : #C10015;
 $info      : #31CCEC;
 $warning   : #F2C037;
 
+$vibrantPurple200: #C7BBDD;
+$vibrantPurple50: #F7F5FA;
+
 // fonts
 $fontFamily: 'default';
-$textSemibold: semibold 14px $fontFamily;
+$textSemibold14: semibold 14px $fontFamily;
+// $captionCaps12: 
 
 @import '~quasar-variables-styl'

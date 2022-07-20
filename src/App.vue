@@ -14,6 +14,7 @@
       </template>
     </c-button>
     <c-menu :modelValue="showMenu" @update:modelValue="showMenu = $event"></c-menu>
+    <CCard v-for="(card, index) in cards" :key="index" v-bind="card"/>
   </main>
 </template>
 
@@ -23,6 +24,9 @@ import HelloWorld from './components/HelloWorld.vue';
 import CButton from './components/CButton.vue';
 import CAvatar from './components/CAvatar.vue';
 import CMenu from './components/CMenu.vue';
+import CCard from './components/CCard.vue';
+
+import { CARDS } from './fakeApi';
 
 export default {
   name: 'LayoutDefault',
@@ -32,6 +36,7 @@ export default {
     CButton,
     CAvatar,
     CMenu,
+    CCard,
   },
 
   data() {
@@ -45,6 +50,7 @@ export default {
       leftDrawerOpen: ref(false),
       // eslint-disable-next-line global-require
       headerAvatarLink: require('./assets/user_avatar_small.png'),
+      cards: CARDS,
     };
   },
 
