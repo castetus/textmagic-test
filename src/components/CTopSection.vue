@@ -94,6 +94,12 @@ export default defineComponent({
 });
 </script>
 
+<style lang="scss">
+  .top-section .q-tab__indicator {
+    color: $fillsAction;
+  }
+</style>
+
 <style scoped lang="scss">
   .top-section {
     width: 100%;
@@ -135,9 +141,6 @@ export default defineComponent({
       & .q-tab {
         padding: 0;
         margin-right: 32px;
-      }
-      & .q-tab__indicator {
-        color: $fillsAction;
       }
       & .q-tab .q-badge {
         color: $textIconLight;

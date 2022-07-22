@@ -84,22 +84,12 @@ export default defineComponent({
     CUserMenu,
     CStatusMenu,
   },
-  data() {
-    return {
-      showMenu: false,
-    };
-  },
   computed: {
     headerAvatarLink(): string {
       return require('../assets/user_avatar_small.png');
     },
     currentStatus(): string {
       return 'Online';
-    },
-  },
-  methods: {
-    toggle() {
-      console.log('test');
     },
   },
 });

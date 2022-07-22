@@ -31,12 +31,6 @@ interface MenuItem {
   counter: number | null,
 }
 
-interface CardType {
-  name: string,
-  text: string,
-  icon: string,
-}
-
 interface IconButton {
   icon: string,
   text: string,

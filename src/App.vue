@@ -3,16 +3,6 @@
     <c-header> </c-header>
     <c-drawer :items="menuItems"></c-drawer>
     <q-page-container :style="`background: ${mainBackground}`">
-        <c-button
-          text="Create"
-          bgColor="#008CFF"
-          textColor="#fff"
-          @click="showMenu ? showMenu = false : showMenu = true">
-          <template v-slot:prepend>
-            <q-icon name="circle"/>
-          </template>
-        </c-button>
-      <c-menu :modelValue="showMenu" @update:modelValue="showMenu = $event"></c-menu>
       <CTopSection
         :buttons="topSectionButtons"
         :tabs="topSectionTabs"
@@ -51,8 +41,6 @@ import { ref } from 'vue';
 import CHeader from './components/CHeader.vue';
 import CDrawer from './components/CDrawer.vue';
 import CTopSection from './components/CTopSection.vue';
-import CButton from './components/CButton.vue';
-import CMenu from './components/CMenu.vue';
 import CCard from './components/CCard.vue';
 
 import {
@@ -66,14 +54,12 @@ export default {
     CHeader,
     CDrawer,
     CTopSection,
-    CMenu,
+
     CCard,
-    CButton,
   },
 
   data() {
     return {
-      showMenu: false,
       currentTab: 'activities',
     };
   },
