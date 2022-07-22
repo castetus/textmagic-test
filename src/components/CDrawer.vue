@@ -44,8 +44,9 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'CDrawer',
   props: {
     items: {
@@ -67,7 +68,6 @@ export default {
       return '';
     },
     backgroundImage() {
-      // eslint-disable-next-line global-require
       return `background-image: url(${require('../assets/admin_menu_back.png')})`;
     },
     badgeStyle() {
@@ -82,7 +82,7 @@ export default {
       this.miniState = !this.miniState;
     },
   },
-};
+});
 </script>
 
 <style scoped lang="scss">

@@ -58,6 +58,7 @@ export default {
     color: v-bind(textColor);
     border-radius: 4px;
     padding: 7px 12px;
+    font: $buttonMedium;
     cursor: pointer;
     &__text {
     }

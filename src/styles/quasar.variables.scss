@@ -19,10 +19,18 @@ $BGPink: #E5E8EA;
 
 $vibrantPurple200: #C7BBDD;
 $vibrantPurple50: #F7F5FA;
+$textIconDistinct: #6E7191;
+$softGrey: #E6E9F1;
+$fillsAction: #008CFF;
+$fillsShade: #F7F7FC;
+$textIconLight: #A0A3BD;
 
 // fonts
-$fontFamily: 'default';
-$textSemibold14: semibold 14px $fontFamily;
-// $captionCaps12: 
+$captionCaps12: normal 12px/16px "SegoeUISemibold", serif;
+$subheadSemibold16: normal 16px/20px "SegoeUISemibold", serif;
+$textRegular14: normal 14px/20px "SegoeUIRegular", serif;
+$textSemibold14: normal 14px/20px "SegoeUISemibold", serif;
+$buttonMedium: normal 14px/20px "SegoeUISemibold", serif;
+$pageTitle20: normal 20px/24px "SegoeUIBold", serif;
 
 @import '~quasar-variables-styl'

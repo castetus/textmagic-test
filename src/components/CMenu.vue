@@ -10,10 +10,7 @@
 import { defineComponent, PropType } from 'vue';
 
 export default defineComponent({
-  components: {},
-
   props: {
-
     modelValue: {
       type: Boolean as PropType<boolean>,
       default: () => false,
@@ -28,7 +25,6 @@ export default defineComponent({
         return this.modelValue;
       },
       set(value: boolean) {
-        console.log(value);
         this.$emit('update:modelValue', value);
       },
     },

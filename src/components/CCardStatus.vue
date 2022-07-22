@@ -28,5 +28,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  .c-card-status {
+    margin-right: 25px;
+  }
+</style>
 
+<style>
+  .c-card-status .q-chip__content {
+    text-transform: uppercase;
+    font: normal 10px/14px "SegoeUIBold", serif;
+    letter-spacing: 0.6px;
+  }
 </style>

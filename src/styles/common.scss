@@ -1,6 +1,45 @@
+@font-face { 
+  font-family: "SegoeUIItalic";
+  src: url("../../public/fonts/SegoeUIItalic/SegoeUIItalic.eot");
+  src: url("../../public/fonts/SegoeUIItalic/SegoeUIItalic.eot?#iefix")format("embedded-opentype"),
+  url("../../public/fonts/SegoeUIItalic/SegoeUIItalic.woff") format("woff"),
+  url("../../public/fonts/SegoeUIItalic/SegoeUIItalic.ttf") format("truetype");
+  font-style: italic;
+  font-weight: normal;
+}
+@font-face { 
+  font-family: "SegoeUIRegular";
+  src: url("../../public/fonts/SegoeUIRegular/SegoeUIRegular.eot");
+  src: url("../../public/fonts/SegoeUIRegular/SegoeUIRegular.eot?#iefix")format("embedded-opentype"),
+  url("../../public/fonts/SegoeUIRegular/SegoeUIRegular.woff") format("woff"),
+  url("../../public/fonts/SegoeUIRegular/SegoeUIRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face { 
+  font-family: "SegoeUISemiBold";
+  src: url("../../public/fonts/SegoeUISemiBold/SegoeUISemiBold.eot");
+  src: url("../../public/fonts/SegoeUISemiBold/SegoeUISemiBold.eot?#iefix")format("embedded-opentype"),
+  url("../../public/fonts/SegoeUISemiBold/SegoeUISemiBold.woff") format("woff"),
+  url("../../public/fonts/SegoeUISemiBold/SegoeUISemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bolder;
+}
+@font-face { 
+  font-family: "SegoeUIBold";
+  src: url("../../public/fonts/SegoeUIBold/SegoeUIBold.eot");
+  src: url("../../public/fonts/SegoeUIBold/SegoeUIBold.eot?#iefix")format("embedded-opentype"),
+  url("../../public/fonts/SegoeUIBold/SegoeUIBold.woff") format("woff"),
+  url("../../public/fonts/SegoeUIBold/SegoeUIBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+}
 * {
   box-sizing: border-box;
 }
 .q-drawer {
   position: fixed;
+}
+.q-tab-panels {
+  background: none;
 }

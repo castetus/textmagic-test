@@ -54,12 +54,12 @@ export function createRandomCard(): Card {
   return {
     cardType: takeRandomValue(CARD_TYPES),
     cardStatus: takeRandomValue(CARD_STATUSES),
-    cardDate: faker.date.birthdate(),
+    cardDate: faker.date.recent(10),
     cardTitle: faker.word.adjective(),
     cardSubtitle: faker.lorem.paragraph(),
     cardFootertext: faker.word.adjective(),
     cardPriority: takeRandomValue(CARD_PRIORITIES),
-    cardAvatarLink: faker.image.imageUrl(),
+    cardAvatarLink: faker.image.people(200, 200, true),
   };
 }
 

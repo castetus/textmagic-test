@@ -1,7 +1,6 @@
 <template>
   <q-layout view="lHh lpr lFf">
-    <c-header>
-    </c-header>
+    <c-header> </c-header>
     <c-drawer :items="menuItems"></c-drawer>
     <q-page-container :style="`background: ${mainBackground}`">
       <CTopSection
@@ -9,9 +8,31 @@
         :tabs="topSectionTabs"
         userName="User Name"
         companyName="Company Name"
+        :modelValue="currentTab"
+        @update:modelValue="currentTab = $event"
       />
+      <q-tab-panels v-model="currentTab" animated>
+        <q-tab-panel name="activities">
+          <div class="text-h6">Mails</div>
+          <CCard v-for="(card, index) in cards" :key="index" v-bind="card" />
+        </q-tab-panel>
+
+        <q-tab-panel name="logs">
+          <div class="text-h6">Alarms</div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </q-tab-panel>
+
+        <q-tab-panel name="visits">
+          <div class="text-h6">Movies</div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </q-tab-panel>
+
+        <q-tab-panel name="files">
+          <div class="text-h6">Movies</div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </q-tab-panel>
+      </q-tab-panels>
       <c-menu :modelValue="showMenu" @update:modelValue="showMenu = $event"></c-menu>
-      <CCard v-for="(card, index) in cards" :key="index" v-bind="card"/>
     </q-page-container>
   </q-layout>
 </template>
@@ -43,13 +64,13 @@ export default {
   data() {
     return {
       showMenu: false,
+      currentTab: 'activities',
     };
   },
 
   setup() {
     return {
       leftDrawerOpen: ref(false),
-      // eslint-disable-next-line global-require
       headerAvatarLink: require('./assets/user_avatar_small.png'),
       cards: CARDS,
       menuItems: MENU_ITEMS,
@@ -59,14 +80,8 @@ export default {
   },
 
   computed: {
-    mainBackground() {
-      return '#E5E8EA';
-    },
-  },
-
-  methods: {
-    switch(val: boolean): void {
-      console.log(val);
+    mainBackground(): string {
+      return '#F7F7FC';
     },
   },
 };
