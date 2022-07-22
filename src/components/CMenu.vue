@@ -1,37 +1,29 @@
 <template>
   <div class="c-menu">
-    <q-menu v-model="model">
-      text
+    <slot name="button" :toggle="toggleHandler"></slot>
+    <q-menu v-model="showMenu">
+      <slot name="menu"></slot>
     </q-menu>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  props: {
-    modelValue: {
-      type: Boolean as PropType<boolean>,
-      default: () => false,
-    },
+
+  data() {
+    return {
+      showMenu: false,
+    };
   },
-
-  emits: ['update:modelValue'],
-
-  computed: {
-    model: {
-      get() {
-        return this.modelValue;
-      },
-      set(value: boolean) {
-        this.$emit('update:modelValue', value);
-      },
+  methods: {
+    toggleHandler() {
+      // eslint-disable-next-line no-unused-expressions
+      this.showMenu ? this.showMenu = true : this.showMenu = false;
     },
   },
 });
 </script>
 
-<style>
-
-</style>
+<style></style>

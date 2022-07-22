@@ -3,6 +3,16 @@
     <c-header> </c-header>
     <c-drawer :items="menuItems"></c-drawer>
     <q-page-container :style="`background: ${mainBackground}`">
+        <c-button
+          text="Create"
+          bgColor="#008CFF"
+          textColor="#fff"
+          @click="showMenu ? showMenu = false : showMenu = true">
+          <template v-slot:prepend>
+            <q-icon name="circle"/>
+          </template>
+        </c-button>
+      <c-menu :modelValue="showMenu" @update:modelValue="showMenu = $event"></c-menu>
       <CTopSection
         :buttons="topSectionButtons"
         :tabs="topSectionTabs"
@@ -32,7 +42,6 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </q-tab-panel>
       </q-tab-panels>
-      <c-menu :modelValue="showMenu" @update:modelValue="showMenu = $event"></c-menu>
     </q-page-container>
   </q-layout>
 </template>
@@ -42,7 +51,7 @@ import { ref } from 'vue';
 import CHeader from './components/CHeader.vue';
 import CDrawer from './components/CDrawer.vue';
 import CTopSection from './components/CTopSection.vue';
-import CAvatar from './components/CAvatar.vue';
+import CButton from './components/CButton.vue';
 import CMenu from './components/CMenu.vue';
 import CCard from './components/CCard.vue';
 
@@ -59,6 +68,7 @@ export default {
     CTopSection,
     CMenu,
     CCard,
+    CButton,
   },
 
   data() {
