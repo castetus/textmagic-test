@@ -22,9 +22,16 @@ export default defineComponent({
     text: String,
     toggler: Boolean,
   },
-  emits: ['push'],
+  emits: ['update:modelValue'],
   computed: {
-
+    value: {
+      get(): boolean {
+        return this.value;
+      },
+      set(val: boolean) {
+        this.$emit('update:modelValue', val);
+      },
+    },
   },
 });
 </script>

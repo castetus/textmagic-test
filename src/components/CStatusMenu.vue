@@ -3,6 +3,7 @@
     <c-status-menu-item
       text="text"
       :toggler="true"
+      @click="clickHandler"
     >
       <template v-slot:icon>
         <img :src="OnlineStatusIcon" />
@@ -36,6 +37,7 @@ export default {
   methods: {
     clickHandler(status) {
       this.currentStatus = status;
+      this.$emit('changeStatus', OnlineStatusIcon);
     },
   },
 };

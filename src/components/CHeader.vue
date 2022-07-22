@@ -32,7 +32,7 @@
             </c-button>
           </template>
           <template v-slot:menu>
-            <CStatusMenu/>
+            <CStatusMenu @changeStatus="test"/>
           </template>
         </c-menu>
 
@@ -84,12 +84,22 @@ export default defineComponent({
     CUserMenu,
     CStatusMenu,
   },
+  data() {
+    return {
+      statusIconPath: '',
+    };
+  },
   computed: {
     headerAvatarLink(): string {
       return require('../assets/user_avatar_small.png');
     },
     currentStatus(): string {
       return 'Online';
+    },
+  },
+  methods: {
+    changeStatus(pl: string) {
+      this.statusIconPath = pl;
     },
   },
 });
